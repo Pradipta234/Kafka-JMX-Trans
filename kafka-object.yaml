@@ -230,7 +230,7 @@ queries:
     objectName: "kafka.log:type=Log,*"
     resultAlias: "log.Log.partition.%partition%.topic.%topic%.%name%.#attribute#"
 
-  - name: ""
+  - name: "LogCleaner metrics"
     objectName: "kafka.log:type=LogCleaner,*"
     resultAlias: "log.LogCleaner.%name%.#attribute#"
 
