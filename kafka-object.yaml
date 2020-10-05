@@ -1,0 +1,280 @@
+queries:
+  
+  query:
+  
+  - name: "Message in rate"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=MessagesInPerSec" 
+    resultAlias: "server.BrokerTopicMetrics.MessagesInPerSec.#attribute#"
+  
+  - name: "Byte in rate from clients"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=BytesInPerSec"
+    resultAlias: "server.BrokerTopicMetrics.BytesInPerSec.#attribute#"
+  
+  - name: "Byte in rate from other brokers"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=ReplicationBytesInPerSec"
+    resultAlias: "server.BrokerTopicMetrics.ReplicationBytesInPerSec.#attribute#"
+  
+  - name: "Fetch Message conversion rate"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=FetchMessageConversionsPerSec,*"
+    resultAlias: "server.BrokerTopicMetrics.FetchMessageConversionsPerSec.%topic%.#attribute#"  
+  
+  - name: "Produce Message conversion rate"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=ProduceMessageConversionsPerSec,*"
+    resultAlias: "server.BrokerTopicMetrics.ProduceMessageConversionsPerSec.%topic%.#attribute#"
+  
+  - name: "Byte out rate to clients"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=BytesOutPerSec"
+    resultAlias: "server.BrokerTopicMetrics.BytesOutPerSec.#attribute#"
+
+  - name: "Byte out rate to other brokers"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=ReplicationBytesOutPerSec"
+    resultAlias: "server.BrokerTopicMetrics.ReplicationBytesOutPerSec.#attribute#"
+
+  - name: "Message validation failure rate due to no key specified for compacted topic"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=NoKeyCompactedTopicRecordsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.NoKeyCompactedTopicRecordsPerSec.#attribute#"
+
+  - name: "Message validation failure rate due to invalid magic number"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=InvalidMagicNumberRecordsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.InvalidMagicNumberRecordsPerSec.#attribute#"
+
+  - name: "Message validation failure rate due to incorrect crc checksum"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=InvalidMessageCrcRecordsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.InvalidMessageCrcRecordsPerSec.#attribute#"
+
+  - name: "Outgoing byte rate of reassignment traffic"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=ReassignmentBytesOutPerSec"
+    resultAlias: "server.BrokerTopicMetrics.ReassignmentBytesOutPerSec.#attribute#"
+
+  - name: "Incoming byte rate of reassignment traffic"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=ReassignmentBytesInPerSec"
+    resultAlias: "server.BrokerTopicMetrics.ReassignmentBytesInPerSec.#attribute#"
+
+  - name: "Produce request rate"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=TotalProduceRequestsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.TotalProduceRequestsPerSec.#attribute#"
+
+  - name: "Fetch request rate"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=TotalFetchRequestsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.TotalFetchRequestsPerSec.#attribute#"
+
+  - name: "Produce request rate for requests that failed"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=FailedProduceRequestsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.FailedProduceRequestsPerSec.#attribute#"
+
+  - name: "Fetch request rate for requests that failed"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=FailedFetchRequestsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.FailedFetchRequestsPerSec.#attribute#"
+
+  - name: "Message validation failure rate due to non-continuous offset or sequence number in batch"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=InvalidOffsetOrSequenceRecordsPerSec"
+    resultAlias: "server.BrokerTopicMetrics.InvalidOffsetOrSequenceRecordsPerSec.#attribute#"
+
+  - name: "Bytes rejected from client"
+    objectName: "kafka.server:type=BrokerTopicMetrics,name=BytesRejectedPerSec"
+    resultAlias: "server.BrokerTopicMetrics.BytesRejectedPerSec.#attribute#"
+
+  - name: "Kafka ReplicaManager"
+    objectName: "kafka.server:type=ReplicaManager,*"
+    resultAlias: "server.ReplicaManager.%name%.#attribute#"
+
+  - name: "Max lag in messages btw follower and leader replicas"
+    objectName: "kafka.server:type=ReplicaFetcherManager,*"
+    resultAlias: "server.ReplicaFetcherManager.clientId.Replica.%name%.#attribute#"
+
+  - name: "Requests waiting in {fetch|producer} purgatory"
+    objectName: "kafka.server:type=DelayedOperationPurgatory,*"
+    resultAlias: "server.DelayedOperationPurgatory.delayedOperation.%delayedOperation%.%name%.#attribute#"
+
+  - name: "Kafka Delayed Fetch Metrics -- fetcherType=consumer,follower -- name=ExpiresPerSec"
+    objectName: "kafka.server:type=DelayedFetchMetrics,*"
+    resultAlias: "server.DelayedFetchMetrics.fetcherType.%fetcherType%.%name%.#attribute#"
+
+  - name: "Kafka Delayed Produce Metrics Per Topic"
+    objectName: "kafka.server:type=DelayedProduceMetrics,name=ExpiresPerSec,*"
+    resultAlias: "server.DelayedProduceMetrics.partition.%partition%.topic.%topic%.ExpiresPerSec.#attribute#"
+
+  - name: "Kafka Delayed Produce Metrics"
+    objectName: "kafka.server:type=DelayedProduceMetrics,name=ExpiresPerSec"
+    resultAlias: "server.DelayedProduceMetrics.ExpiresPerSec.#attribute#"
+
+  - name: "Kafka FetchSessionCache -- name=IncrementalFetchSessionEvictionsPerSec,NumIncrementalFetchPartitionsCached,NumIncrementalFetchSessions"
+    objectName: "kafka.server:type=FetchSessionCache,*"
+    resultAlias: "server.FetchSessionCache.%name%.#attribute#"
+
+  - name: "kafka FetcherLagMetrics per client per partitition per topic --name=ConsumerLag"
+    objectName: "kafka.server:type=FetcherLagMetrics,*"
+    resultAlias: "server.FetcherLagMetrics.clientId.%clientId%.partition.%partition%.topic.%topic%.%name%.#attribute#"
+
+  - name: "kafka FetcherStats per BrokerHost per BrokerPort per clientId --name=BytesPerSec,RequestsPerSec"
+    objectName: "kafka.server:type=FetcherStats,*"
+    resultAlias: "server.FetcherStats.brokerHost.%brokerHost%.brokerPort.%brokerPort%.clientId.%clientId%.%name%.#attribute#"
+
+  - name: "RequestHandlerAvgIdlePercent"
+    objectName: "kafka.server:type=KafkaRequestHandlerPool,name=RequestHandlerAvgIdlePercent"
+    resultAlias: "server.KafkaRequestHandlerPool.RequestHandlerAvgIdlePercent.#attribute#"
+
+  - name: "KafkaServer --name=broker-state,yammer-metrics-count"
+    objectName: "kafka.server:type=KafkaServer,*"
+    resultAlias: "server.KafkaServer.%name%.#attribute#"
+  
+  - name: "ReplicaAlterLogDirsManager --name=DeadThreadCount,FailedPartitionsCount,MaxLag,MinFetchRate"
+    objectName: "kafka.server:type=ReplicaAlterLogDirsManager,*"
+    resultAlias: "server.ReplicaAlterLogDirsManager.clientId.ReplicaAlterLogDirs.%name%.#attribute#"
+
+  - name: "ZooKeeper connection status"
+    objectName: "kafka.server:type=SessionExpireListener,*"
+    resultAlias: "server.SessionExpireListener.%name%.#attribute#"
+
+  - name: "ZooKeeper client request latency"
+    objectName: "kafka.server:type=ZooKeeperClientMetrics,*"
+    resultAlias: "server.ZooKeeperClientMetrics.%name%.#attribute#"
+
+  - name: "Controller requests queue size (per broker)"
+    objectName: "kafka.controller:type=ControllerChannelManager,name=QueueSize,broker-id=*"
+    resultAlias: "controller.ControllerChannelManager.broker-id.%broker-id%.QueueSize.#attribute#"
+
+  - name: "Controller RequestRate and QueueTime in Ms (per broker)"
+    objectName: "kafka.controller:type=ControllerChannelManager,name=RequestRateAndQueueTimeMs,broker-id=*"
+    resultAlias: "controller.ControllerChannelManager.broker-id.%broker-id%.RequestRateAndQueueTimeMs.#attribute#"
+
+  - name: "Total number of controller requests to be sent out to brokers"
+    objectName: "kafka.controller:type=ControllerChannelManager,name=TotalQueueSize"
+    resultAlias: "controller.ControllerChannelManager.TotalQueueSize.#attribute#"
+
+  - name: "ControllerEventlManager --name=EventQueueSize,EventQueueTimeMs"
+    objectName: "kafka.controller:type=ControllerEventlManager,*"
+    resultAlias: "controller.ControllerEventlManager.%name%.#attribute#"
+
+  - name: "KafkaContoller Counts"
+    objectName: "kafka.controller:type=KafkaController,*"
+    resultAlias: "controller.KafkaController.%name%.#attribute#"
+
+  - name: "ControllerStats in Ms"
+    objectName: "kafka.controller:type=ControllerStats,*"
+    resultAlias: "controller.ControllerStats.%name%.#attribute#"
+
+  - name: "coordinator GroupMetadataManager"
+    objectName: "kafka.coordinator:type=GroupMetadataManager,*"
+    resultAlias: "coordinator.group.GroupMetadataManager.%name%.#attribute#"
+
+  - name: "coordinator TransactionMarkerChannelManager"
+    objectName: "kafka.coordinator:type=TransactionMarkerChannelManager,*"
+    resultAlias: "coordinator.transaction.TransactionMarkerChannelManager.%name%.#attribute#"
+
+  - name: "Network Acceptor metric"
+    objectName: "kafka.network:type=Acceptor,name=AcceptorBlockedPercent,listener=PLAINTEXT"
+    resultAlias: "network.Acceptor.listener.PLAINTEXT.AcceptorBlockedPercent.#attribute#"
+
+  - name: "NetworkProcessor metric --name=IdlePercent"
+    objectName: "kafka.network:type=Processor,*"
+    resultAlias: "network.Processor.networkProcessor.%networkProcessor%.%name%.#attribute#"
+
+  - name: "RequestQueueSize in RequestChannel"
+    objectName: "kafka.network:type=RequestChannel,name=RequestQueueSize"
+    resultAlias: "network.RequestChannel.RequestQueueSize.#attribute#"
+
+  - name: "ResponseQueueSize in RquestChannel"
+    objectName: "kafka.network:type=RequestChannel,name=ResponseQueueSize"
+    resultAlias: "network.RequestChannel.ResponseQueueSize.#attribute"
+
+  - name: "ResponseQueueSize per processor"
+    objectName: "kafka.network:type=RequestChannel,name=ResponseQueueSize,processor=*"
+    resultAlias: "network.RequestChannel.processor.%processor%.ResponseQueueSize.#attribute#"
+
+  - name: "Time the request is processed at the leader"
+    objectName: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.LocalTimeMs.#attribute#"
+
+  - name: "Time the request waits for the follower"
+    objectName: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.RemoteTimeMs.#attribute#"
+
+  - name: "Time the request waits in the request queue"
+    objectName: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.RequestQueueTimeMs.#attribute#"
+
+  - name: "Request rate"
+    objectName: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.RequestsPerSec.#attribute#"
+
+  - name: "Time to send the response"
+    objectName: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.ResponseSendTimeMs.#attribute#"
+
+  - name: "Time the request waits in the response queue"
+    objectName: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.ResponseQueueTimeMs.#attribute#"
+
+  - name: "Request throttle time"
+    objectName: "kafka.network:type=RequestMetrics,name=ThrottleTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.ThrottleTimeMs.#attribute#"
+
+  - name: "Request total time"
+    objectName: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.TotalTimeMs.#attribute#"
+
+  - name: "Request size in bytes"
+    objectName: "kafka.network:type=RequestMetrics,name=RequestBytes,request=*"
+    resultAlias: "network.RequestMetrics.request.%request%.RequestBytes.#attribute#"
+
+  - name: "Error rate"
+    objectName: "kafka.network:type=RequestMetrics,name=ErrorsPerSec,*"
+    resultAlias: "network.RequestMetrics.error.%error%.request.%request%.ErrorsPerSec.#attribute#"
+
+  - name: "network-SockerServer --name=ControlPlaneExpiredConnectionsKilledCount,ExpiredConnectionsKilledCount,NetworkProcessorAvgIdlePercent,MemoryPoolAvailable,MemoryPoolUsed"
+    objectName: "kafka.network:type=SocketServer,*"
+    resultAlias: "network.SocketServer.%name%.#attribute#"
+
+  - name: "Log metrics per partition per topic --name=LogEndOffset,LogStartOffset,NumLogSegments,Size"
+    objectName: "kafka.log:type=Log,*"
+    resultAlias: "log.Log.partition.%partition%.topic.%topic%.%name%.#attribute#"
+
+  - name: ""
+    objectName: "kafka.log:type=LogCleaner,*"
+    resultAlias: "log.LogCleaner.%name%.#attribute#"
+
+  - name: "Log flush rate and time"
+    objectName: "kafka.log:name=LogFlushRateAndTimeMs,type=LogFlushStats"
+    resultAlias: "log.LogFlushStats.LogFlushRateAndTimeMs.#attribute#"
+
+  - name: "LogManeger OfflineLogDirectoryCount"
+    objectName: "kafka.log:type=LogManager,name=OfflineLogDirectoryCount"
+    resultAlias: "log.LogManager.OfflineLogDirectoryCount.#attribute#"
+
+  - name: "LogDirectoryOffline per log directory"
+    objectName: "kafka.log:type:LogManager,name=LogDirectoryOffline,*"
+    resultAlias: "log.LogManager.logDirectory.%logDirectory%.LogDirectoryOffline.#attribute#"
+
+  - name: "log cleaner manager -- time-since-last-run-ms"
+    objectName: "kafka.log:type=LogCleanerManager,name=time-since-last-run-ms"
+    resultAlias: "log.LogCleanerManager.time-since-last-run-ms.#attribute#"
+
+  - name: "log cleaner manager -- max-dirty-percent"
+    objectName: "kafka.log:type=LogCleanerManager,name=max-dirty-percent"
+    resultAlias: "log.LogCleanerManager.max-dirty-percent.#attribute#"
+
+  - name: "log cleaner manager -- uncleanable-bytes"
+    objectName: "kafka.log:type=LogCleanerManager,name=uncleanable-bytes,*"
+    resultAlias: "log.LogCleanerManager.logDirectory.%logDirectory%.uncleanable-bytes.#attribute#"
+
+  - name: "log cleaner manager -- uncleanable-partitions-count"
+    objectName: "kafka.log:type=LogCleanerManager,name=uncleanable-partitions-count,*"
+    resultAlias: "log.LogCleanerManager.logDirectory.%logDirectory%.uncleanable-partitions-count.#attribute#"
+
+  - name: "util metrics"
+    objectName: "kafka.utils:type=Throttler,name=cleaner-io"
+    resultAlias: "utils.Throttler.cleaner-io.#attribute#"
+
+  - name: "cluster metrics per partition per topic"
+    objectName: "kafka.cluster:type=Partition,*"
+    resultAlias: "cluster.Partition.partition.%partition%.topic.%topic%.%name%.#attribute#" 
+
+  - name: "Produce Bandwidth quota metrics per client-id"
+    objectName: "kafka.server:type=Produce,*"
+    resultAlias: "server.Produce.%client-id%.#attribute#"
+
+  - name: "Fetch Bandwidth quota metrics per client-id"
+    objectName: "kafka.server:type=Fetch,*"
+    resultAlias: "server.Fetch.%client-id%.#attribute#"
+
