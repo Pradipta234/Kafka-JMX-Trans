@@ -259,5 +259,10 @@
         <maxFileSize>10</maxFileSize>
         <maxBackupIndex>4</maxBackupIndex>
     </outputWriter>
+    <outputWriter class="org.jmxtrans.agent.GraphitePlainTextTcpOutputWriter">
+        <host>d974d971.carbon.hostedgraphite.com</host>
+        <port>2003</port>
+        <namePrefix>abb76b49-af6e-4db2-aa2c-458dae48e6fa.cmMonitor.kafka-test-jmxtrans.kafka.</namePrefix>
+    </outputWriter>
     <collectIntervalInSeconds>60</collectIntervalInSeconds>
 </jmxtrans-agent>
