@@ -297,7 +297,7 @@
     <outputWriter class="org.jmxtrans.agent.GraphitePlainTextTcpOutputWriter">
         <host>graphite-host</host>
         <port>2003</port>
-        <namePrefix>kafka-test-jmxtrans.xx.</namePrefix>
+        <namePrefix>kafka-test-jmxtrans.xx.hostname.</namePrefix>
     </outputWriter>
     <reloadConfigurationCheckIntervalInSeconds>60</reloadConfigurationCheckIntervalInSeconds>
     <collectIntervalInSeconds>60</collectIntervalInSeconds>
