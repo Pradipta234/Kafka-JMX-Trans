@@ -295,9 +295,10 @@
         <maxBackupIndex>4</maxBackupIndex>
     </outputWriter>
     <outputWriter class="org.jmxtrans.agent.GraphitePlainTextTcpOutputWriter">
-        <host>d974d971.carbon.hostedgraphite.com</host>
+        <host>graphite-host</host>
         <port>2003</port>
-        <namePrefix>abb76b49-af6e-4db2-aa2c-458dae48e6fa.cmMonitor.kafka-test-jmxtrans.</namePrefix>
+        <namePrefix>kafka-test-jmxtrans.xx.</namePrefix>
     </outputWriter>
+    <reloadConfigurationCheckIntervalInSeconds>60</reloadConfigurationCheckIntervalInSeconds>
     <collectIntervalInSeconds>60</collectIntervalInSeconds>
 </jmxtrans-agent>
